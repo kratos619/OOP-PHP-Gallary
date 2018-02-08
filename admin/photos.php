@@ -7,7 +7,7 @@
  */
 
 ?>
-<?php include("includes/header.php"); ?>
+<?php include("includes/admin_header.php"); ?>
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -22,9 +22,9 @@
                 <a class="navbar-brand" href="index.html">SB Admin</a>
             </div>
             <!-- Top Menu Items -->
-           <?php include 'includes/top-nav.php'; ?>
+           <?php include 'includes/admin_top-nav.php'; ?>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <?php include 'includes/side-nav.php'; ?>
+            <?php include 'includes/admin_side-nav.php'; ?>
             <!-- /.navbar-collapse -->
         </nav>
 
@@ -58,4 +58,4 @@
         </div>
         <!-- /#page-wrapper -->
 
-  <?php include("includes/footer.php"); ?>
+  <?php include("includes/admin_footer.php"); ?>
