@@ -5,8 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-include 'admin_config.php';
-include 'database.php';
-include 'User.php';
+function redirect_to($page_name){
+    header("Location: " . $page_name);
+}
 
-?>

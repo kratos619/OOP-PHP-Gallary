@@ -19,10 +19,21 @@
                         
                         <?php
                         
-                        $query = "select * from users where id=1";
-                        $result = $database -> Query($query);
-                        $user_found = mysqli_fetch_assoc($result);
-                        echo $user_found['username'];
+                       
+//                        $result_set = User::find_all_users();
+//                        while ($row = mysqli_fetch_array($result_set)){
+//                        echo $row['id'] . "<br/>"; 
+//                        }
+                        //find user by id
+                        $find_user_by_id = User::find_user_by_id('2');
+                       
+                
+                        $user = User::instatiation($find_user_by_id);
+                        echo $user->first_name;
+                        echo $user->last_name;
+                        echo $user->username;
+                        echo $user->id;
+                        
                         ?>
                         <ol class="breadcrumb">
                             <li>
@@ -35,6 +46,5 @@
                     </div>
                 </div>
                 <!-- /.row -->
-
             </div>
 
