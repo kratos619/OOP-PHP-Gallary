@@ -19,7 +19,7 @@ class Database{
     
    $this->connection = new mysqli(DB_HOST,DB_USER,DB_PASS,DB_NAME);
         if($this->connection->connect_errno){
-        die("womething went wrong ". $this->connection->connect_errno );
+        die("Something went wrong ". $this->connection->connect_errno );
     }
 }
 

@@ -1,5 +1,4 @@
 <?php
-
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -18,21 +17,13 @@
                         </h1>
                         
                         <?php
-                        
                        
-//                        $result_set = User::find_all_users();
-//                        while ($row = mysqli_fetch_array($result_set)){
-//                        echo $row['id'] . "<br/>"; 
-//                        }
-                        //find user by id
-                        $find_user_by_id = User::find_user_by_id('2');
-                       
-                
-                        $user = User::instatiation($find_user_by_id);
-                        echo $user->first_name;
-                        echo $user->last_name;
-                        echo $user->username;
-                        echo $user->id;
+                        $user = new User();
+                       $result = $user->find_all_users();
+                       while ($row = mysqli_fetch_assoc($result)){
+                           echo $row['username'] . "<br/>" ;
+                           
+                       }
                         
                         ?>
                         <ol class="breadcrumb">
@@ -47,4 +38,3 @@
                 </div>
                 <!-- /.row -->
             </div>
-
