@@ -17,18 +17,11 @@
                         </h1>
                         
                         <?php
-                       
-                        
-                       $result = User::find_all_users();
-                       while ($row = mysqli_fetch_assoc($result)){
-                           echo $row['username'] . "<br/>" ;
-                           
+           
+                       $result= User::find_all_users();
+                       foreach ($result as $attributr){
+                           echo $result->first_name;
                        }
-                       $result_by_id = User::find_user_by_id("2");
-                       
-                  
-                       
-                        
                         ?>
                         <ol class="breadcrumb">
                             <li>

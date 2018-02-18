@@ -27,18 +27,27 @@
      public static function find_this_query($sql){
          global $database;
          $result_set = $database->Query($sql);
-         return $result_set;
+         $the_object_array = array();
+         while ($row = mysqli_fetch_assoc($result_set)){
+             $the_object_array[] = self::instatiation($row);
+         }
+         return $the_object_array;
      }
      
-     public static function instatiation(){
-         $user_object = new User();
+     public static function instatiation($result_by_id){
+         $user_object = new self();
          
-         echo $user_object->id = $result_by_id['id'];
-         echo $user_object->username =  $result_by_id['username'];
-         echo $user_object->first_name = $result_by_id['first_name'];
-         echo $user_object->last_name = $result_by_id['last_name'];
-         
+         foreach ($result_by_id as $the_attribute => $value){
+             if($user_object->has_attribute()){
+                 $user_object->$the_attribute = $value;
+             }
+         }
          return $user_object;
+     }
+     
+     private function has_attribute($the_attribute){
+        $object_properties = get_object_vars($this);
+        return array_key_exists($the_attribute,$object_properties);
      }
      
      
