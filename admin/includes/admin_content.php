@@ -18,12 +18,20 @@
                         
                         <?php
                        
-                        $user = new User();
-                       $result = $user->find_all_users();
+                        
+                       $result = User::find_all_users();
                        while ($row = mysqli_fetch_assoc($result)){
                            echo $row['username'] . "<br/>" ;
                            
                        }
+                       $result_by_id = User::find_user_by_id("2");
+                       
+                       $user_object = new User();
+                       
+                       $user_object ->username;
+                       
+                           echo $result_by_id['username'];
+                       
                         
                         ?>
                         <ol class="breadcrumb">
