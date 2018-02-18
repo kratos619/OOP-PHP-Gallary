@@ -30,6 +30,16 @@
          return $result_set;
      }
      
+     public static function instatiation(){
+         $user_object = new User();
+         
+         echo $user_object->id = $result_by_id['id'];
+         echo $user_object->username =  $result_by_id['username'];
+         echo $user_object->first_name = $result_by_id['first_name'];
+         echo $user_object->last_name = $result_by_id['last_name'];
+         
+         return $user_object;
+     }
      
      
  }

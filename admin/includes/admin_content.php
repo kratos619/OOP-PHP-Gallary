@@ -26,14 +26,7 @@
                        }
                        $result_by_id = User::find_user_by_id("2");
                        
-                       $user_object = new User();
-                       
-                       $user_object ->username;
-                       
-                           echo $result_by_id['id'];
-                           echo $result_by_id['username'];
-                           echo $result_by_id['first_name'];
-                           echo $result_by_id['last_name'];
+                  
                        
                         
                         ?>
