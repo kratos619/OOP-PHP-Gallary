@@ -19,8 +19,15 @@
      
      public static function find_user_by_id($id){
          global $database;
-         $result_set = self::find_this_query("select * from users where id = $id");
-         $found_users = mysqli_fetch_assoc($result_set);
+         $array_result_set = self::find_this_query("select * from users where id = $id");
+         
+         //$found_users = mysqli_fetch_assoc($result_set);
+         if(!empty($array_result_set)){
+             $first_item = array_shift($array_result_set);
+             return $first_item;
+         }else{
+             return FALSE;
+         }
          return $found_users;
      }
      
@@ -34,11 +41,11 @@
          return $the_object_array;
      }
      
-     public static function instatiation($result_by_id){
+     public static function instatiation($the_record){
          $user_object = new self();
          
-         foreach ($result_by_id as $the_attribute => $value){
-             if($user_object->has_attribute()){
+         foreach ($the_record as $the_attribute => $value){
+             if($user_object->has_attribute($the_attribute)){
                  $user_object->$the_attribute = $value;
              }
          }

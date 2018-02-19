@@ -17,11 +17,8 @@
                         </h1>
                         
                         <?php
-           
-                       $result= User::find_all_users();
-                       foreach ($result as $attributr){
-                           echo $result->first_name;
-                       }
+                          $find_user_by_id = User::find_user_by_id("1");
+                          echo  $find_user_by_id->username;
                         ?>
                         <ol class="breadcrumb">
                             <li>
