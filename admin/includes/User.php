@@ -57,6 +57,22 @@
         return array_key_exists($the_attribute,$object_properties);
      }
      
+     public function verify_user(){
+         global $database;
+         $username = $database->escape_string($username);
+         $password = $database->escape_string($password);
+         $sql = "select * from user where username = '{$username}' and password = '{$password}' limit = 1";
+         $array_result_set = self::find_this_query($sql);
+         
+         //$found_users = mysqli_fetch_assoc($result_set);
+         if(!empty($array_result_set)){
+             $first_item = array_shift($array_result_set);
+             return $first_item;
+         }else{
+             return FALSE;
+         }
+     }
+     
      
  }
 

@@ -5,8 +5,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+include 'functions.php';
 include 'admin_config.php';
-include 'database.php';
+require_once 'database.php';
 include 'User.php';
-
+include 'session.php';
 ?>
