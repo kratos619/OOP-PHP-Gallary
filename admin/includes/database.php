@@ -37,8 +37,8 @@ private function confirm_query($result){
 }
 
 public function escape_string($string){
-$escaped_string = $this->connection->mysqli_real_escape_string($this->connection,$string);
-return $escaped_string;
+$escaped_strings =mysqli_real_escape_string($this->connection,$string);
+return $escaped_strings;
 }
     
 

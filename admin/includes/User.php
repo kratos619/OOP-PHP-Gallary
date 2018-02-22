@@ -57,11 +57,11 @@
         return array_key_exists($the_attribute,$object_properties);
      }
      
-     public function verify_user(){
+     public static function  verify_user($username,$password){
          global $database;
          $username = $database->escape_string($username);
          $password = $database->escape_string($password);
-         $sql = "select * from user where username = '{$username}' and password = '{$password}' limit = 1";
+         $sql = "select * from users where username = '{$username}' and password = '{$password}'";
          $array_result_set = self::find_this_query($sql);
          
          //$found_users = mysqli_fetch_assoc($result_set);

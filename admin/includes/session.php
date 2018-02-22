@@ -1,7 +1,5 @@
 <?php
-
-
-class Session{
+class Sessions{
     
     //properties
     private $signed_in = FALSE ;
@@ -14,7 +12,7 @@ class Session{
     }
     
     public function is_signed_in(){
-       return $this->$signed_in = FALSE ;
+       return $this->signed_in = FALSE ;
     }
     
     public function login($user){
@@ -40,12 +38,9 @@ class Session{
         unset($this->user_id);
         $this->signed_in = FALSE;
     }
-    
-    
-    
-    
- 
+
 }
 
-$session = new Session();
+$session = new Sessions();
+
 ?>
