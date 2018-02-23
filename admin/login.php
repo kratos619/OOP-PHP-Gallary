@@ -17,20 +17,20 @@ if(isset($_POST['submit'])){
         redirect_to("index.php");
     }else{
         $the_message = "Your Pssword or username are incorrect";
-        $print_message =  '<h4 class="bg-danger">' . $the_message . '</h4>';
+       
     
     }
     
 }else{
    $username= "";
    $password="";
+   $the_message = "";
 }
 ?>
 
 <div class="col-md-4 col-md-offset-3">
 
-<?php $print_message ?>
-	
+<h4 class="bg-danger"><?php $the_message; ?></h4>
 <form id="login-id" action="" method="post">
 	
 <div class="form-group">
@@ -41,7 +41,7 @@ if(isset($_POST['submit'])){
 
 <div class="form-group">
 	<label for="password">Password</label>
-	<input type="password" class="form-control" name="password" value="<?php echo htmlentities($password); ?>">
+	<input type="password" class="form-control" name="password" value="<?php // echo htmlentities($password); ?>">
 	
 </div>
 
