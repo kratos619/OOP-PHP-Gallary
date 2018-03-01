@@ -17,7 +17,7 @@
                         </h1>
                         
                         <?php
-                          $find_user_by_id = User::find_user_by_id("1");
+                          $find_user_by_id = User::find_user_by_id("2");
                           echo  $find_user_by_id->username; 
                         ?>
                         <ol class="breadcrumb">
