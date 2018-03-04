@@ -17,8 +17,26 @@
                         </h1>
                         
                         <?php
-                          $find_user_by_id = User::find_user_by_id("2");
-                          echo  $find_user_by_id->username; 
+//
+//                        $user = new User();
+//                        $user->username = "saurabh123";
+//                        $user->first_name = "saurabh";
+//                        $user->last_name = "pal";
+//                        $user->password = "123";
+//                        if($user->create_data()){
+//                            echo "data created ";
+//                        }
+
+//
+//                        $delete_Users= User::find_user_by_id(5);
+//
+//                        if($delete_Users->delete_data()){
+//                            echo "data has been deleted";
+//                        }else{
+//                            echo "please select data";
+//                        }
+
+
                         ?>
                         <ol class="breadcrumb">
                             <li>

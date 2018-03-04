@@ -39,7 +39,13 @@ private function confirm_query($result){
 public function escape_string($string){
 $escaped_strings =mysqli_real_escape_string($this->connection,$string);
 return $escaped_strings;
+    }
+
+public  function the_Insert_Id() {
+        return mysqli_insert_id($this->connection);
 }
+
+
     
 
 }
