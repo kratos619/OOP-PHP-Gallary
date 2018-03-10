@@ -15,13 +15,13 @@
 
 
      public static function find_all_users(){
-         return self::find_this_query("select * from project_gallery_users ");
+         return self::find_this_query("select * from users ");
      }
 
      public static function find_user_by_id($id){
          global $database;
 
-         $array_result_set = self::find_this_query("select * from project_gallery_users where id = $id");
+         $array_result_set = self::find_this_query("select * from users where id = $id");
          
          //$found_users = mysqli_fetch_assoc($result_set);
          if(!empty($array_result_set)){
@@ -63,7 +63,7 @@
          global $database;
          $username = $database->escape_string($username);
          $password = $database->escape_string($password);
-         $sql = "select * from project_gallery_users where username = '{$username}' and password = '{$password}'";
+         $sql = "select * from users where username = '{$username}' and password = '{$password}'";
          $array_result_set = self::find_this_query($sql);
          
          //$found_users = mysqli_fetch_assoc($result_set);
@@ -78,7 +78,7 @@
      //create function to create data to db
      public function create_data() {
          global $database;
-         $sql = "INSERT into project_gallery_users(username, first_name, last_name, password) ";
+         $sql = "INSERT into users(username, first_name, last_name, password) ";
          $sql .= "VALUE ('";
          $sql .= $database->escape_string($this->username) . "', '";
          $sql .= $database->escape_string($this->first_name) . "', '";
