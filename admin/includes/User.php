@@ -75,6 +75,11 @@
          }
      }
 
+     public function save(){
+         return isset($this->id)? $this->update_data() : $this->create_data();
+     }
+
+
      //create function to create data to db
      public function create_data() {
          global $database;
@@ -99,7 +104,7 @@
      public function update_data(){
          global $database;
 
-         $sql = "update project_gallery_users set ";
+         $sql = "update users set ";
          $sql .= "username = '" . $database->escape_string($this->username) . "' , ";
          $sql .= "first_name = '" . $database->escape_string($this->first_name) . "' , ";
          $sql .= "last_name = '" . $database->escape_string($this->last_name) . "' , ";
@@ -115,7 +120,7 @@
 
      public function delete_data() {
          global $database;
-            $sql = "delete from project_gallery_users WHERE id  = " . $database->escape_string($this->id) . " limit 1 ";
+            $sql = "delete from users WHERE id  = " . $database->escape_string($this->id) . " limit 1 ";
             $database->Query($sql);
          return (mysqli_affected_rows($database->connection) == 1) ? true : false;
 

@@ -36,6 +36,10 @@
 //                            echo "please select data";
 //                        }
 
+                        $user = User::find_user_by_id(1);
+
+                        $user->password = "123";
+                        $user->save();
 
                         ?>
                         <ol class="breadcrumb">
