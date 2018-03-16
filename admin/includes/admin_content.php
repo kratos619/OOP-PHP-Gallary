@@ -36,15 +36,24 @@
 //                            echo "please select data";
 //                        }
 
-                        $user = User::find_user_by_id(1);
-
-                        $user->password = "123";
+                        $user = User::find_user_by_id(7);
+                        $user->username = "chanchal23";
+                        $user->password = "1234";
+                        $user->first_name = "Chanchal";
+                        $user->last_name = "Ingle";
                         $user->save();
+//
+//                        $user = new User();
+//                        $user->username = "saurav1231";
+//                        $user->first_name = "saurabh";
+//                        $user->last_name = "pal";
+//                        $user->password = "1234";
+//                        $user->save();
 
                         ?>
                         <ol class="breadcrumb">
                             <li>
-                                <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                                <i class="fa fa-dashboard"></i>  <a href="index.php">Dashboard</a>
                             </li>
                             <li class="active">
                                 <i class="fa fa-file"></i> Blank Page

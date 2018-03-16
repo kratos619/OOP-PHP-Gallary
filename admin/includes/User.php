@@ -6,7 +6,9 @@
  * and open the template in the editor.
  */
  class User {
-   
+        protected static $table_name= "users";
+protected static $db_tables_fields = array('username',"first_name","last_name","password");
+
      public $id;
      public $username;
      public $first_name;
@@ -58,6 +60,18 @@
         $object_properties = get_object_vars($this);
         return array_key_exists($the_attribute,$object_properties);
      }
+
+     # return all properties regarding to this class eg id,username, password,etc
+     protected function properties(){
+         $properties = array();
+         foreach (self::$db_tables_fields as $values){
+             if(property_exists($this,$values)){
+                 $properties[$values] = $this->$values;
+             }
+         }
+         return $properties;
+     }
+
      
      public static function  verify_user($username,$password){
          global $database;
@@ -80,15 +94,16 @@
      }
 
 
-     //create function to create data to db
+     //create function to create data to user db
+
+     /**
+      * @return implode function return string(85) "username = 'chanchal23',first_name = 'Chanchal',last_name = 'Ingle',password = '1234'"
+      */
      public function create_data() {
          global $database;
-         $sql = "INSERT into users(username, first_name, last_name, password) ";
-         $sql .= "VALUE ('";
-         $sql .= $database->escape_string($this->username) . "', '";
-         $sql .= $database->escape_string($this->first_name) . "', '";
-         $sql .= $database->escape_string($this->last_name) . "', '";
-         $sql .= $database->escape_string($this->password) . "')";
+         $properties = $this->properties();
+         $sql = "INSERT into " . self::$table_name . "(" . implode(",",array_keys($properties)) . ")";
+         $sql .= "VALUE ('" . implode("','",array_values($properties)) . "')";
 
          if($database->Query($sql)){
             $this -> id = $database->the_Insert_Id();
@@ -104,13 +119,19 @@
      public function update_data(){
          global $database;
 
-         $sql = "update users set ";
-         $sql .= "username = '" . $database->escape_string($this->username) . "' , ";
-         $sql .= "first_name = '" . $database->escape_string($this->first_name) . "' , ";
-         $sql .= "last_name = '" . $database->escape_string($this->last_name) . "' , ";
-         $sql .= "password = '" . $database->escape_string($this->password) . "' ";
+         $properties = $this->properties();
+         $properties_pairs = array();
+         foreach ($properties as $key => $value ){
+             $properties_pairs[] = "{$key} = '{$value}'";
+         }
+         $sql = "update " . self::$table_name . " set ";
+         $sql .= implode(",",$properties_pairs);
          $sql .= " where id =" . $database->escape_string($this->id);
-            echo $sql;
+//            echo $sql;
+//             // $implode = implode(",",$properties_pairs);
+//             echo "<pre>";
+//            echo var_dump($implode);
+//            echo "</pre>";
          $database->Query($sql);
 
          return (mysqli_affected_rows($database->connection) == 1) ? true : false;
@@ -120,7 +141,7 @@
 
      public function delete_data() {
          global $database;
-            $sql = "delete from users WHERE id  = " . $database->escape_string($this->id) . " limit 1 ";
+            $sql = "delete from " . self::$table_name . " WHERE id  = " . $database->escape_string($this->id) . " limit 1 ";
             $database->Query($sql);
          return (mysqli_affected_rows($database->connection) == 1) ? true : false;
 
