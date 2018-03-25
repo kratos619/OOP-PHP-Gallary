@@ -72,6 +72,16 @@ protected static $db_tables_fields = array('username',"first_name","last_name","
          return $properties;
      }
 
+public function clean_properties(){
+         global $database;
+         $clean_properties = array();
+
+         foreach ($this->properties() as $key => $value){
+            $clean_properties[$key] = $database->escape_string($value);
+         }
+         return $clean_properties;
+}
+
      
      public static function  verify_user($username,$password){
          global $database;
@@ -101,7 +111,7 @@ protected static $db_tables_fields = array('username',"first_name","last_name","
       */
      public function create_data() {
          global $database;
-         $properties = $this->properties();
+         $properties = $this->clean_properties();
          $sql = "INSERT into " . self::$table_name . "(" . implode(",",array_keys($properties)) . ")";
          $sql .= "VALUE ('" . implode("','",array_values($properties)) . "')";
 
@@ -119,7 +129,7 @@ protected static $db_tables_fields = array('username',"first_name","last_name","
      public function update_data(){
          global $database;
 
-         $properties = $this->properties();
+         $properties = $this->clean_properties();
          $properties_pairs = array();
          foreach ($properties as $key => $value ){
              $properties_pairs[] = "{$key} = '{$value}'";

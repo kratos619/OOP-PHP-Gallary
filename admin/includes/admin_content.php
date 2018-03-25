@@ -35,21 +35,20 @@
 //                        }else{
 //                            echo "please select data";
 //                        }
-
-                        $user = User::find_user_by_id(7);
-                        $user->username = "chanchal23";
-                        $user->password = "1234";
-                        $user->first_name = "Chanchal";
-                        $user->last_name = "Ingle";
-                        $user->save();
+//
+//                        $user = User::find_user_by_id(7);
+//                        $user->username = "chanchal23";
+//                        $user->password = "1234";
+//                        $user->first_name = "Chanchal";
+//                        $user->last_name = "Ingle";
+//                        $user->save();
 //
 //                        $user = new User();
-//                        $user->username = "saurav1231";
-//                        $user->first_name = "saurabh";
-//                        $user->last_name = "pal";
-//                        $user->password = "1234";
-//                        $user->save();
-
+//                        $user->username = "<saurav12311>";
+//                        $user->first_name = "<saurabh2>";
+//                        $user->last_name = "padsl";
+//                        $user->password = "1234fd";
+//                        $user->create_data();
                         ?>
                         <ol class="breadcrumb">
                             <li>
