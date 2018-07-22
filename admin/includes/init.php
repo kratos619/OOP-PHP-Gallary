@@ -7,6 +7,7 @@
  */
 include 'functions.php';
 include 'admin_config.php';
+include 'Db_object.php';
 require_once 'database.php';
 include 'User.php';
 include 'session.php';

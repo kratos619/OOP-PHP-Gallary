@@ -49,6 +49,10 @@
 //                        $user->last_name = "padsl";
 //                        $user->password = "1234fd";
 //                        $user->create_data();
+                        $user = User::find_all();
+                        foreach ($user as $properties){
+                            echo $properties->username;
+                        }
                         ?>
                         <ol class="breadcrumb">
                             <li>

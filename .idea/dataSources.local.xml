@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="php_project_gallery@localhost" uuid="e0b6ac6d-d581-4c18-bd85-6acdb4abdfe1">
+    <data-source name="php_project_gallery@localhost" uuid="6591525f-c831-4c92-8770-1df68b822973">
       <database-info product="MySQL" version="5.5.5-10.1.30-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.45 ( Revision: 9131eefa398531c7dc98776e8a3fe839e544c5b2 )">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
